@@ -23,11 +23,15 @@ export const UserInput = styled.input`
 `;
 export const UserButton = styled.button`
     background-color: ${colors.dark};
-    color: ${colors.white};
     border: 0;
-    padding: 6px;
+    color: ${colors.white};
     margin-top: 15px;
+    padding: 6px;
     &:hover{
     
     }
+`;
+
+export const UsersContainer = styled.div`
+
 `;

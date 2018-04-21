@@ -6,7 +6,12 @@ import Footer from '../../components/footer/footer.component';
 
 //Styles
 import {Wrapper} from "../../utils/styles/global.style";
-import {Container, UserLoginBox, UserInput, UserButton} from './home.style';
+import {
+    Container,
+    UserLoginBox,
+    UserInput,
+    UserButton,
+    UsersContainer} from './home.style';
 
 class Home extends Component {
     state={
@@ -34,6 +39,8 @@ class Home extends Component {
         this.setState({inputValue: event.target.value});
     };
 
+    renderUsers = () => this.state.users.map((item) => <div key={item}>{item}</div>);
+
     render() {
         return (
             <Container>
@@ -44,6 +51,9 @@ class Home extends Component {
                                 <UserInput ref="userInput" onChange={this.userOnChange} value={this.state.inputValue}/>
                                 <UserButton onClick={this.addNewUser}>Add user</UserButton>
                         </UserLoginBox>
+                        <UsersContainer>
+                            {this.renderUsers()}
+                        </UsersContainer>
                     </Wrapper>
                 <Footer/>
             </Container>
