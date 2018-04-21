@@ -16,4 +16,3 @@ export const Head = styled.div`
 
 `;
 
-//export const
