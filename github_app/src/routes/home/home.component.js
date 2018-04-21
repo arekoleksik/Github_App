@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 //Components
 import Header from '../../components/header/header.component';
 import Footer from '../../components/footer/footer.component';
-
+import userDetails from '../../routes/userDetails/userDetails.component'
 //Styles
 import {Wrapper} from "../../utils/styles/global.style";
 import {
@@ -39,7 +39,7 @@ class Home extends Component {
         this.setState({inputValue: event.target.value});
     };
 
-    renderUsers = () => this.state.users.map((item) => <div key={item}>{item}</div>);
+    renderUsers = () => this.state.users.map((item) => <a href={`/user/${item}`} key={item}>{item}</a>);
 
     render() {
         return (

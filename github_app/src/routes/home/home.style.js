@@ -27,11 +27,18 @@ export const UserButton = styled.button`
     color: ${colors.white};
     margin-top: 15px;
     padding: 6px;
+   
     &:hover{
     
     }
 `;
 
 export const UsersContainer = styled.div`
-
+    margin: 0px auto;
+    width: 500px;
+    a {
+    text-decoration: none;
+    color: ${colors.dark};
+    font-size: 1.2em
+    }
 `;
