@@ -11,7 +11,7 @@ import {Container, UserLoginBox, UserInput, UserButton} from './home.style';
 class Home extends Component {
     state={
         users: [],
-        value: ''
+        inputValue: ''
 
     };
 
@@ -23,15 +23,15 @@ class Home extends Component {
     };
 
     addNewUser = ()=>{
-      console.log('addNewUser '+this.state.value);
+      console.log('addNewUser '+this.state.inputValue);
         this.setState({
-            users:[...this.state.value, this.state.inputValue],
+            users:[...this.state.users, this.state.inputValue],
             inputValue: ''
         })
 
     };
     userOnChange = (event)=>{
-        this.setState({value: event.target.value});
+        this.setState({inputValue: event.target.value});
     };
 
     render() {
