@@ -27,16 +27,20 @@ class userDetails extends Component {
             githubConfig.clientSecret
         )
             .then(resp => resp.json())
-            .then(result => this.setState({
+
+            .then(result => {
+                console.log(result);
+                this.setState({
                 details:result
-            }));
+            })});
     };
     render(){
         return (
             <userDetails>
                 <Header/>
                 <Wrapper>
-                    {this.props.match.params.userLogin}
+                    {this.state.details.login}
+                    {this.state.details.id}
                 </Wrapper>
 
                 <Footer/>
