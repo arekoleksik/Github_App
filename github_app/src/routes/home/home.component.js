@@ -12,12 +12,12 @@ import {
     UserInput,
     UserButton,
     UsersContainer} from './home.style';
+import {Link} from 'react-router-dom'
 
 class Home extends Component {
     state={
         users: [],
         inputValue: ''
-
     };
 
     componentDidMount(){
@@ -39,7 +39,7 @@ class Home extends Component {
         this.setState({inputValue: event.target.value});
     };
 
-    renderUsers = () => this.state.users.map((item) => <div key={item}>{item}</div>);
+    renderUsers = () => this.state.users.map((item) => <div key={item}><Link to={`/user/${item}`}>{item}</Link></div>);
 
     render() {
         return (
