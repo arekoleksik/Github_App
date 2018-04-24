@@ -1,21 +1,52 @@
 import React, { Component } from 'react';
-import { render } from 'react-dom';
-import {UserDetailsContainer} from './userDetails.style';
-import {Wrapper} from "../../utils/styles/global.style";
-import Header from '../../components/header/header.component'
-import Footer from '../../components/footer/footer.component'
+
+// Styles
+import {
+    Container,
+} from './userDetails.styles';
+
+import { Wrapper } from '../../utils/styles/global.style';
+
+// Components
+import Header from '../../components/header/header.component';
+import Footer from '../../components/footer/footer.component';
+import {githubConfig} from '../../config/config'
 
 class userDetails extends Component {
-    render() {
+    state = {
+        details: {}
+    };
+    componentDidMount() {
+        fetch(
+            githubConfig.apiUrl +
+            'users/' +
+            this.props.match.params.userLogin +
+            '?client_id=' +
+            githubConfig.clientId +
+            '&client_secret=' +
+            githubConfig.clientSecret
+        )
+            .then(resp => resp.json())
+
+            .then(result => {
+                console.log(result);
+                this.setState({
+                details:result
+            })});
+    };
+    render(){
         return (
-            <UserDetailsContainer>
-                    <Header/>
-                    <Wrapper>
-                        <div> Detale</div>
-                    </Wrapper>
-                    <Footer/>
-            </UserDetailsContainer>
+            <userDetails>
+                <Header/>
+                <Wrapper>
+                    {this.state.details.login}
+                    {this.state.details.id}
+                </Wrapper>
+
+                <Footer/>
+            </userDetails>
         );
+
     }
 }
 
